@@ -24,7 +24,8 @@
     "react-component"
   ],
   "dependencies": {
-    "form-data-to-object": "^0.1.0"
+    "form-data-to-object": "^0.1.0",
+    "omit.keys": "1.0.1"
   },
   "devDependencies": {
     "babel": "^5.6.4",
