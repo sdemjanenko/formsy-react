@@ -1,4 +1,5 @@
 var React = global.React || require('react');
+var omitKeys = require("omit.keys");
 var Formsy = {};
 var validationRules = require('./validationRules.js');
 var formDataToObject = require('form-data-to-object');
@@ -430,9 +431,22 @@ Formsy.Form = React.createClass({
     this.validateForm();
   },
   render: function () {
+    var nonFormsyProps = omitKeys(this.props, [
+      'mapping',
+      'validationErrors',
+      'onSubmit',
+      'onValid',
+      'onInvalid',
+      'onInvalidSubmit',
+      'onChange',
+      'reset',
+      'preventExternalInvalidation',
+      'onSuccess',
+      'onError',
+    ]);
 
     return (
-      <form {...this.props} onSubmit={this.submit}>
+      <form {...nonFormsyProps} onSubmit={this.submit}>
         {this.props.children}
       </form>
     );
